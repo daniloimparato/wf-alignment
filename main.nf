@@ -266,8 +266,7 @@ workflow pipeline {
 process output {
     label "wfalignment"
     // publish inputs to output directory
-    publishDir "${params.out_dir}", mode: 'copy', pattern: "*", saveAs: {
-        f -> params.prefix ? "${params.prefix}-${f}" : "${f}" }
+    publishDir "${params.out_dir}", mode: 'copy', pattern: "*", saveAs: { f -> "${f}" - "output_" }
     input:
         path fname
     output:
