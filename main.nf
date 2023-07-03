@@ -273,7 +273,7 @@ process output {
         path "output_${fname}"
     """
     echo "Writing output files"
-    cp --dereference ${fname} output_${fname}
+    cp ${fname} output_${fname}
     """
 }
 
